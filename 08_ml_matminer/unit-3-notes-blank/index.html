@@ -1,0 +1,760 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <meta name="description" content="Lessons for the Materials Project Workshop">
+      
+      
+        <link rel="canonical" href="https://workshop.materialsproject.org/08_ml_matminer/unit-3-notes-blank/">
+      
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-components-1.10.11">
+    
+    
+      
+        <title>Unit 3 notes blank - The Materials Project Workshop</title>
+      
+    
+    
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-e826f8942a.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-2cd7d9ab0f.css">
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/material-components-web.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/mdc-web.css">
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Ubuntu+Mono">
+        <style>body,input{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      <link rel="stylesheet" href="../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../../css/pandas-dataframe.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script>
+    
+  </head>
+  
+  
+  
+  
+    <body>
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      
+        <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink md-flex__cell--vmiddle">
+        <a href="https://workshop.materialsproject.org/" title="The Materials Project Workshop" class="md-header-nav__button md-logo">
+          
+            <img src="../../assets/images/logo_white.png" width="36" height="36">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            The Materials Project Workshop -
+            
+              
+            
+            Unit 3 notes blank
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result" data-md-lang-search="" data-md-lang-tokenizer="[\s\-]+">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/materialsproject/workshop/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+      
+    </div>
+  </nav>
+</header>
+      
+    
+    <div class="md-container">
+      
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <div class="md-nav__button md-logo">
+      
+        <i class="md-icon md-icon--home"></i>
+      
+    </div>
+    The Materials Project Workshop
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/materialsproject/workshop/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Lessons
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Lessons
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="primer/01_basic_python/1%20-%20Introduction%20and%20Jupyter%20Use/" title="1   Introduction and Jupyter Use" class="md-nav__link">
+      1   Introduction and Jupyter Use
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="primer/01_basic_python/2%20-%20Variables%20and%20built-in%20functions/" title="2   Variables and built in functions" class="md-nav__link">
+      2   Variables and built in functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="primer/01_basic_python/3%20-%20Lists/" title="3   Lists" class="md-nav__link">
+      3   Lists
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="primer/01_basic_python/4%20-%20For%20loops/" title="4   For loops" class="md-nav__link">
+      4   For loops
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title md-nav__toc" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scikit-learn" title="Scikit-Learn" class="md-nav__link">
+    Scikit-Learn
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-and-prepare-a-pre-featurized-model" title="Load and prepare a pre-featurized model" class="md-nav__link">
+    Load and prepare a pre-featurized model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-a-random-forest-model-using-scikit-learn" title="Try a random forest model using scikit-learn" class="md-nav__link">
+    Try a random forest model using scikit-learn
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluating-model-performance" title="Evaluating model performance" class="md-nav__link">
+    Evaluating model performance
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cross-validation" title="Cross validation" class="md-nav__link">
+    Cross validation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualizing-model-performance" title="Visualizing model performance" class="md-nav__link">
+    Visualizing model performance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-interpretation" title="Model interpretation" class="md-nav__link">
+    Model interpretation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lets-practice" title="Let's practice!" class="md-nav__link">
+    Let's practice!
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div id="article-content" class="md-content"> 
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/materialsproject/workshop/edit/master/docs/08_ml_matminer/unit-3-notes-blank.ipynb" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script>
+(function() {
+  function addWidgetsRenderer() {
+    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
+    var scriptElement = document.createElement('script');
+    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
+    var widgetState;
+
+    // Fallback for older version:
+    try {
+      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
+
+      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
+        widgetRendererSrc = 'jupyter-js-widgets@*/dist/embed.js';
+      }
+    } catch(e) {}
+
+    scriptElement.src = widgetRendererSrc;
+    document.body.appendChild(scriptElement);
+  }
+
+  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
+}());
+</script>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<h1 id="part-3-machine-learning-models">Part 3: Machine learning models<a class="headerlink" href="#part-3-machine-learning-models" title="Permanent link">&para;</a></h1>
+<p>In parts 1 and 2, we demonstrated how to download a dataset and add machine learnable features. In part 3, we show how to train a machine learning model on a dataset and analyze the results.</p>
+<h3 id="scikit-learn">Scikit-Learn<a class="headerlink" href="#scikit-learn" title="Permanent link">&para;</a></h3>
+<p>This unit makes extensive use of the <a href="https://scikit-learn.org/stable/">scikit-learn</a> package, an open-source python package for  machine learning. Matminer has been designed to make machine learning with scikit-learn as easy as possible. Other machine learning packages exist, such as <a href="https://www.tensorflow.org">TensorFlow</a>, which implement neural network architectures. These packages can also be used with <code>matminer</code> but are outside the scope of this workshop.</p>
+<h2 id="load-and-prepare-a-pre-featurized-model">Load and prepare a pre-featurized model<a class="headerlink" href="#load-and-prepare-a-pre-featurized-model" title="Permanent link">&para;</a></h2>
+<p>First, let's load a dataset that we can use for machine learning. In advance, we've added some composition and structure features to the <code>elastic_tensor_2015</code> dataset used in exercises 1 and 2.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">matminer.utils.io</span> <span class="kn">import</span> <span class="n">load_dataframe_from_json</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">load_dataframe_from_json</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;resources&quot;</span><span class="p">,</span> <span class="s2">&quot;elastic_tensor_2015_featurized.json&quot;</span><span class="p">))</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+We first need to split the dataset into the "target" property, and the "features" used for learning. In this model, we will be using the bulk modulus (<code>K_VRH</code>) as the target property. We use the <code>values</code> attribute of the dataframe to give the target properties a numpy array, rather than pandas <code>Series</code> object.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+The machine learning algorithm can only use numerical features for training. Accordingly, we need to remove any non-numerical columns from our dataset. Additionally, we want to remove the <code>K_VRH</code> column from the set of features, as the model should not know about the target property in advance.</p>
+<p>The dataset loaded above, includes <code>structure</code>, <code>formula</code>, and <code>composition</code> columns that were previously used to generate the machine learnable features. Let's remove them using the pandas <code>drop()</code> function, discussed in unit 1. Remember, <code>axis=1</code> indicates we are dropping columns rather than rows.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+We can see all the descriptors in model using the <code>column</code> attribute.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<h2 id="try-a-random-forest-model-using-scikit-learn">Try a random forest model using scikit-learn<a class="headerlink" href="#try-a-random-forest-model-using-scikit-learn" title="Permanent link">&para;</a></h2>
+<p>The <code>scikit-learn</code> library makes it easy to use our generated features for training machine learning models. It implements a variety of different regression models and contains tools for cross-validation.</p>
+<p>In the interests of time, in this example we will only trial a single model but it is good practice to trial multiple models to see which performs best for your machine learning problem. A good "starting" model is the random forest model. Let's create a random forest model.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
+</code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Notice we created the model with the number of estimators (<code>n_estimators</code>) set to <code>100</code>. <code>n_estimators</code> is an example of a machine learning <em>hyper-parameter</em>. Most models contain many tunable hyper-parameters. To obtain good performance, it is necessary to fine tune these parameters for each individual machine learning problem. There is currently no simple way to know in advance what hyper-parameters will be optimal. Usually, a trial and error approach is used.</p>
+<p>We can now train our model to use the input features (<code>X</code>) to predict the target property (<code>y</code>). This is achieved using the <code>fit()</code> function.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+That's it, we have trained our first machine learning model!</p>
+<h2 id="evaluating-model-performance">Evaluating model performance<a class="headerlink" href="#evaluating-model-performance" title="Permanent link">&para;</a></h2>
+<p>Next, we need to assess how the model is performing. To do this, we first ask the model to predict the bulk modulus for every entry in our original dataframe.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Next, we can check the accuracy of our model by looking at the <em>root mean squared error</em> of our predictions. Scikit-learn provides a <code>mean_squared_error()</code> function to calculate the mean squared error. We then take the square-root of this to obtain our final performance metric.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+
+<span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;training RMSE = </span><span class="si">{:.3f}</span><span class="s1"> GPa&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mse</span><span class="p">)))</span>
+</code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+An RMSE of 7.2 GPa looks very reasonable! However, as the model was trained and evaluated on exactly the same data, this is not a true estimate of how the model will perform for unseen materials (the primary purpose of machine learning studies).</p>
+<h3 id="cross-validation">Cross validation<a class="headerlink" href="#cross-validation" title="Permanent link">&para;</a></h3>
+<p>To obtain a more accurate estimate of prediction performance and validate that we are not over-fitting, we need to check the <strong>cross-validation score</strong> rather than the fitting score.</p>
+<p>In cross-validation, the data is partitioned randomly into $n$ "splits" (in this case 10), each containing roughly the same number of samples. The model is trained on $n-1$ splits (the training set) and the model performance evaluated by comparing the actual and predicted values for the final split (the testing set). In total, this process is repeated $n$ times, such that each split is at some point used as the testing set. The cross-validation score is the average score across all testing sets.</p>
+<p>There are a number of ways to partition the data into splits. In this example, we use the <code>KFold</code> method and select the number of splits to be 10. I.e., 90 % of the data will be used as the training set, with 10 % used as the testing set.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span>
+</code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Note, we set <code>random_state=1</code> to ensure every attendee gets the same answer for their model.</p>
+<p>Finally, obtaining the cross validation score can be automated using the Scikit-Learn <code>cross_val_score()</code> function. This function requires a machine learning model, the input features, and target property as arguments. Note, we pass the <code>kfold</code> object as the<code>cv</code> argument, to make <code>cross_val_score()</code> use the correct test/train splits.</p>
+<p>For each split, the model will be trained from scratch, before the performance is evaualated. As we have to train and predict 10 times, cross validation can often take some time to perform. In our case, the model is quite small, so the process only takes about a minute. The final cross validation score is the average across all splits.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+
+<span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">rf</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">kfold</span><span class="p">)</span>
+
+<span class="n">rmse_scores</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">scores</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean RMSE: </span><span class="si">{:.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">rmse_scores</span><span class="p">)))</span>
+</code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Notice that our RMSE has almost tripled as now it reflects the true predictive power of the model. However, a root-mean-squared error of ~18 GPa is still not bad!</p>
+<h2 id="visualizing-model-performance">Visualizing model performance<a class="headerlink" href="#visualizing-model-performance" title="Permanent link">&para;</a></h2>
+<p>We can visualize the predictive performance of our model by plotting the our predictions against the actual value, for each sample in the test set for all test/train splits. First, we get the predicted values of the testing set for each split using the <code>cross_val_predict</code> method. This is similar to the <code>cross_val_score</code> method, except it returns the actual predictions, rather than the model score.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_predict</span>
+</code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+For plotting we use <code>PlotlyFig</code> module of matminer, which helps you quickly produce publication ready diagrams. <code>PlotlyFig</code> can produce many different types of plots. Explaining its use in detail is outside the scope of this tutorial but examples of the available plots are provided in the <a href="https://github.com/hackingmaterials/matminer_examples/tree/master/matminer_examples/figrecipes-nb">FigRecipes section of the matminer_examples repository</a>.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">matminer.figrecipes.plot</span> <span class="kn">import</span> <span class="n">PlotlyFig</span>
+
+<span class="n">pf</span> <span class="o">=</span> <span class="n">PlotlyFig</span><span class="p">(</span><span class="n">x_title</span><span class="o">=</span><span class="s1">&#39;DFT (MP) bulk modulus (GPa)&#39;</span><span class="p">,</span>
+               <span class="n">y_title</span><span class="o">=</span><span class="s1">&#39;Predicted bulk modulus (GPa)&#39;</span><span class="p">,</span>
+               <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;notebook&#39;</span><span class="p">)</span>
+
+<span class="n">pf</span><span class="o">.</span><span class="n">xy</span><span class="p">(</span><span class="n">xy_pairs</span><span class="o">=</span><span class="p">[(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">),</span> <span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">400</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">400</span><span class="p">])],</span> 
+      <span class="n">labels</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;formula&#39;</span><span class="p">],</span> 
+      <span class="n">modes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span> <span class="s1">&#39;lines&#39;</span><span class="p">],</span>
+      <span class="n">lines</span><span class="o">=</span><span class="p">[{},</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;dash&#39;</span><span class="p">:</span> <span class="s1">&#39;dash&#39;</span><span class="p">}],</span> 
+      <span class="n">showlegends</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Not too bad! However, there are definitely some outliers (you can hover over the points with your mouse to see what they are).
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<h2 id="model-interpretation">Model interpretation<a class="headerlink" href="#model-interpretation" title="Permanent link">&para;</a></h2>
+<p>An important aspect of machine learning is being able to understand why a model is making certain predictions. Random forest models are particularly amenable to interpretation as they possess a <code>feature_importances</code> attribute, which contains the importance of each feature in deciding the final prediction. Let's look at the feature importances of our model.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+To make sense of this, we need to know which feature each number corresponds to. We can use <code>PlotlyFig</code> to plot the importances of the 5 most important features.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">importances</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">feature_importances_</span>
+<span class="n">included</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span>
+<span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">importances</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">pf</span> <span class="o">=</span> <span class="n">PlotlyFig</span><span class="p">(</span><span class="n">y_title</span><span class="o">=</span><span class="s1">&#39;Importance (%)&#39;</span><span class="p">,</span>
+               <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Feature by importances&#39;</span><span class="p">,</span>
+               <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;notebook&#39;</span><span class="p">)</span>
+
+<span class="n">pf</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">included</span><span class="p">[</span><span class="n">indices</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">importances</span><span class="p">[</span><span class="n">indices</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+</code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+As you can see, the average melting point of the elements and the volume per atom are the most important features in our model.</p>
+<h2 id="lets-practice">Let's practice!<a class="headerlink" href="#lets-practice" title="Permanent link">&para;</a></h2>
+<p>Now, let's practice. You'll try training and evaluating a machine learning model on a pre-trained dataset.
+</div>
+</div></p>
+</div>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Built by The Materials Project
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://yakworks.github.io/mkdocs-material-components/" title="Material Components for MkDocs">
+          Material Components for MkDocs</a>
+      </div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-68832431b5.js"></script>
+      
+      
+      <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+      <script>window.mdc.autoInit()</script>
+      <script src="../../assets/javascripts/headroom.min.js"></script>
+      <script src="../../assets/javascripts/jQuery.headroom.min.js"></script>
+      <script src="../../assets/javascripts/jq-mdc-web.js"></script>
+      <script src="https://cdn.jsdelivr.net/jquery.loadingoverlay/latest/loadingoverlay.min.js"></script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
+      
+    
+    
+  </body>
+</html>
